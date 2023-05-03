@@ -10,6 +10,7 @@
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
+    <StartupObject>TunicRandoTracker.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Content Remove="Assets\sword.png" />
@@ -41,6 +42,8 @@
     <None Remove="Assets\items\shotgun.png" />
     <None Remove="Assets\items\slot.png" />
     <None Remove="Assets\items\stick.png" />
+    <None Remove="Assets\items\sword3.png" />
+    <None Remove="Assets\items\sword4.png" />
     <None Remove="Assets\items\trophy.png" />
     <None Remove="Assets\items\vaultkey.png" />
     <None Remove="Assets\items\wand.png" />
