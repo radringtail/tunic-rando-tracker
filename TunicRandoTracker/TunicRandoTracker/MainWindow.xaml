@@ -1,0 +1,75 @@
+<!-- Copyright (c) Microsoft Corporation and Contributors. -->
+<!-- Licensed under the MIT License. -->
+
+<Window
+    x:Class="TunicRandoTracker.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TunicRandoTracker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ui="using:CommunityToolkit.WinUI.UI"
+    xmlns:media="using:CommunityToolkit.WinUI.UI.Media"
+    mc:Ignorable="d">
+
+    <VariableSizedWrapGrid x:Name="ItemGrid" ItemHeight="100" ItemWidth="100" Orientation="Horizontal" Width="Auto" Height="Auto" Background="#000">
+        <Image Name="Stick"     Opacity="0.4" Source="Assets/items/stick.png" />
+        <Image Name="Sword"     Opacity="0.4" Source="Assets/items/sword.png" />
+        <Image Name="Dagger"    Opacity="0.4" Source="Assets/items/dagger.png" />
+        <Image Name="Wand"      Opacity="0.4" Source="Assets/items/wand.png" />
+        <Image Name="Orb"       Opacity="0.4" Source="Assets/items/orb.png" />
+        <Image Name="Laurels"   Opacity="0.4" Source="Assets/items/laurels.png" />
+        <Image Name="Lantern"   Opacity="0.4" Source="Assets/items/lantern.png" />
+        <Image Name="Shield"    Opacity="0.4" Source="Assets/items/shield.png" />
+        <Image Name="Hourglass" Opacity="0.4" Source="Assets/items/hourglass.png" />
+        <Image Name="Gun"       Opacity="0.4" Source="Assets/items/shotgun.png" />
+        <Image Name="Dath"      Opacity="0.4" Source="Assets/items/dath.png" />
+        <Image Name="HouseKey"  Opacity="0.4" Source="Assets/items/key.png" />
+        <Image Name="VaultKey"  Opacity="0.4" Source="Assets/items/vaultkey.png" />
+        <Image Name="Shard"     Opacity="0.4" Source="Assets/items/shard.png" />
+        <Image Name="Flask"     Opacity="0.4" Source="Assets/items/flask.png" />
+
+        <Grid Name="CoinGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="CoinsShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Coins}"/>
+            </Grid.Resources>
+            <Image Name="Coins" Opacity="0.4" Source="Assets/items/coin.png"  />
+            <TextBlock Name="CoinsCount" Text="0" ui:Effects.Shadow="{StaticResource CoinsShadow}"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                    FontSize="36" FontFamily="Consolas" Padding="5"/>
+        </Grid>
+
+        <Grid Name="SlotsGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="SlotsShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Slots}"/>
+            </Grid.Resources>
+            <Image Name="Slots" Opacity="0.4" Source="Assets/items/slot.png" />
+            <TextBlock Name="SlotsCount" Text="0" ui:Effects.Shadow="{StaticResource SlotsShadow}"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                    FontSize="36" FontFamily="Consolas" Padding="5"/>
+        </Grid>
+
+        <Grid Name="CardsGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="CardsShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Cards}"/>
+            </Grid.Resources>
+            <Image Name="Cards" Opacity="0.4" Source="Assets/items/card.png" />
+            <TextBlock Name="CardsCount" ui:Effects.Shadow="{StaticResource CardsShadow}"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                       FontSize="36" FontFamily="Consolas" Padding="5"/>
+        </Grid>
+
+        <Image Name="Pages"     Opacity="0.4" Source="Assets/items/book.png" />
+        <Image Name="Fairies"   Opacity="0.4" Source="Assets/items/fairy.png" />
+        <Image Name="Trophies"  Opacity="0.4" Source="Assets/items/trophy.png" />
+        <Image Name="ATT"       Opacity="0.4" Source="Assets/items/relic-att.png" />
+        <Image Name="DEF"       Opacity="0.4" Source="Assets/items/relic-def.png" />
+        <Image Name="POTION"    Opacity="0.4" Source="Assets/items/relic-potion.png" />
+        <Image Name="HP"        Opacity="0.4" Source="Assets/items/relic-hp.png" />
+        <Image Name="SP"        Opacity="0.4" Source="Assets/items/relic-sp.png" />
+        <Image Name="MP"        Opacity="0.4" Source="Assets/items/relic-mp.png" />
+        <Image Name="HexRed"    Opacity="0.4" Source="Assets/items/hex-red.png" />
+        <Image Name="HexGreen"  Opacity="0.4" Source="Assets/items/hex-green.png" />
+        <Image Name="HexBlue"   Opacity="0.4" Source="Assets/items/hex-blue.png" />
+    </VariableSizedWrapGrid>
+</Window>

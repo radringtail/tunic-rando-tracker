@@ -1,0 +1,85 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>TunicRandoTracker</RootNamespace>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Platforms>x86;x64;ARM64</Platforms>
+    <RuntimeIdentifiers>win10-x86;win10-x64;win10-arm64</RuntimeIdentifiers>
+    <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
+    <UseWinUI>true</UseWinUI>
+    <EnableMsixTooling>true</EnableMsixTooling>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="Assets\sword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\items\book.png" />
+    <None Remove="Assets\items\card.png" />
+    <None Remove="Assets\items\coin.png" />
+    <None Remove="Assets\items\dagger.png" />
+    <None Remove="Assets\items\dath.png" />
+    <None Remove="Assets\items\fairy.png" />
+    <None Remove="Assets\items\flask.png" />
+    <None Remove="Assets\items\hex-blue.png" />
+    <None Remove="Assets\items\hex-green.png" />
+    <None Remove="Assets\items\hex-red.png" />
+    <None Remove="Assets\items\hourglass.png" />
+    <None Remove="Assets\items\key.png" />
+    <None Remove="Assets\items\lantern.png" />
+    <None Remove="Assets\items\laurels.png" />
+    <None Remove="Assets\items\orb.png" />
+    <None Remove="Assets\items\relic-att.png" />
+    <None Remove="Assets\items\relic-def.png" />
+    <None Remove="Assets\items\relic-hp.png" />
+    <None Remove="Assets\items\relic-mp.png" />
+    <None Remove="Assets\items\relic-potion.png" />
+    <None Remove="Assets\items\relic-sp.png" />
+    <None Remove="Assets\items\shard.png" />
+    <None Remove="Assets\items\shield.png" />
+    <None Remove="Assets\items\shotgun.png" />
+    <None Remove="Assets\items\slot.png" />
+    <None Remove="Assets\items\stick.png" />
+    <None Remove="Assets\items\trophy.png" />
+    <None Remove="Assets\items\vaultkey.png" />
+    <None Remove="Assets\items\wand.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.WinUI.UI" Version="7.1.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.UI.Media" Version="7.1.2" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.221109.1" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <!-- 
+    Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
+    Tools extension to be activated for this project even if the Windows App SDK Nuget
+    package has not yet been restored.
+  -->
+  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <ProjectCapability Include="Msix" />
+  </ItemGroup>
+
+  <!-- 
+    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution 
+    Explorer "Package and Publish" context menu entry to be enabled for this project even if 
+    the Windows App SDK Nuget package has not yet been restored.
+  -->
+  <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TunicRandoTracker (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TunicRandoTracker (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
