@@ -19,8 +19,8 @@ namespace TunicRandoTracker
     /// </summary>
     public sealed partial class MainWindow : Window
     {
-        public const string itemTrackerFolderPath = @"C:\Users\Radi\AppData\LocalLow\Andrew Shouldice\Secret Legend\Randomizer";
-        public const string itemTrackerPath = @"C:\Users\Radi\AppData\LocalLow\Andrew Shouldice\Secret Legend\Randomizer\ItemTracker.json";
+        public const string itemTrackerFolder = @"%UserProfile%\AppData\LocalLow\Andrew Shouldice\Secret Legend\Randomizer";
+        public const string itemTrackerFile = @"%UserProfile%\AppData\LocalLow\Andrew Shouldice\Secret Legend\Randomizer\ItemTracker.json";
         public static FileSystemWatcher FileWatcher = new FileSystemWatcher();
         public static DispatcherQueue uiThread = DispatcherQueue.GetForCurrentThread();
 
@@ -32,7 +32,7 @@ namespace TunicRandoTracker
                 Title = "TUNIC Randomizer Tracker v0.1";
                 ParseRando();
 
-                FileWatcher.Path = itemTrackerFolderPath;
+                FileWatcher.Path = Environment.ExpandEnvironmentVariables(itemTrackerFolder);
                 FileWatcher.NotifyFilter = NotifyFilters.LastWrite;
                 FileWatcher.Changed += new FileSystemEventHandler(OnChanged);
                 FileWatcher.Filter = "*.json";
@@ -54,7 +54,7 @@ namespace TunicRandoTracker
 
         public void ParseRando()
         {
-            var trackerFile = JObject.Parse(File.ReadAllText(itemTrackerPath));
+            var trackerFile = JObject.Parse(File.ReadAllText(Environment.ExpandEnvironmentVariables(itemTrackerFile)));
             var currentTracker = JsonConvert.DeserializeObject<ItemTracker>(trackerFile.ToString());
 
             // check togglable items 
