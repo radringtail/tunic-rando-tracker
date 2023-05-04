@@ -3,14 +3,13 @@
 
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Linq;
 using System.Threading;
 using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Dispatching;
+using System.Text.Json;
 
 namespace TunicRandoTracker
 {
@@ -56,8 +55,8 @@ namespace TunicRandoTracker
 
         public void ParseRando()
         {
-            var trackerFile = JObject.Parse(File.ReadAllText(Environment.ExpandEnvironmentVariables(itemTrackerFile)));
-            var currentTracker = JsonConvert.DeserializeObject<ItemTracker>(trackerFile.ToString());
+            var trackerFile = File.ReadAllText(Environment.ExpandEnvironmentVariables(itemTrackerFile));
+            var currentTracker = JsonSerializer.Deserialize<ItemTracker>(trackerFile.ToString());
 
             // check togglable items 
             ItemCollected(currentTracker, Stick, "Stick");
