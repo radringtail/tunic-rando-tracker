@@ -138,12 +138,19 @@ namespace TunicRandoTracker
             {
                 // updates based on collected upgrades
                 var foundStat = current.ImportantItems.SingleOrDefault(x => x.Key == statName);
-                item.Opacity = foundStat.Value > 0 ? 1 : 0.5;
                 itemCount.Text = foundStat.Value.ToString();
 
                 // updates based on collected upgrades
                 var foundRelic = current.ImportantItems.SingleOrDefault(x => x.Key == relicName);
-                item.Source = foundRelic.Value > 0 ? new BitmapImage(new Uri($"ms-appx:///assets/items/relic-{code}2.png")) : item.Source;
+                item.Source = foundRelic.Value > 0
+                    ? new BitmapImage(new Uri($"ms-appx:///assets/items/relic-{code}2.png"))
+                    : new BitmapImage(new Uri($"ms-appx:///assets/items/relic-{code}.png"));
+
+                // light up graphic if either an upgrade was found or the relic was obtained
+                if (foundStat.Value > 0 || foundRelic.Value > 0)
+                {
+                    item.Opacity = foundStat.Value > 0 ? 1 : 0.5;
+                }
             });
         }
     }
