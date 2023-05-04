@@ -30,6 +30,8 @@ namespace TunicRandoTracker
             {
                 InitializeComponent();
                 Title = "TUNIC Randomizer Tracker v0.1";
+
+                // fire once
                 ParseRando();
 
                 FileWatcher.Path = Environment.ExpandEnvironmentVariables(itemTrackerFolder);
@@ -97,6 +99,10 @@ namespace TunicRandoTracker
             {
                 switch (swordProg.Value)
                 {
+                    case 1:
+                    case 2:
+                        Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/items/sword.png"));
+                        break;
                     case 3:
                         Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/items/sword3.png"));
                         break;

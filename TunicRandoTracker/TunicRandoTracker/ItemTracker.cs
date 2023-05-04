@@ -21,7 +21,7 @@ namespace TunicRandoTracker
 
         public Dictionary<string, int> ImportantItems { get; set; }
 
-        public List<ItemData> ItemsCollected { get; set; }
+        //public List<ItemData> ItemsCollected { get; set; }
     }
 
 
