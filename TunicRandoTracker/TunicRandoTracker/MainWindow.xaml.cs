@@ -29,7 +29,7 @@ namespace TunicRandoTracker
             try
             {
                 InitializeComponent();
-                Title = "TUNIC Randomizer Tracker v0.1";
+                Title = "TUNIC Randomizer Tracker v1.0.0";
                 this.SetWindowSize(1216, 239); // 12x2
 
                 // fire once
@@ -167,7 +167,7 @@ namespace TunicRandoTracker
             uiThread.TryEnqueue(() =>
             {
                 var foundItem = current.ImportantItems.SingleOrDefault(x => x.Key == randoName);
-                item.Opacity = foundItem.Value > 0 ? 1 : 0.4;
+                item.Opacity = foundItem.Value > 0 ? 1 : 0.3;
             });
         }
 
@@ -176,7 +176,7 @@ namespace TunicRandoTracker
             uiThread.TryEnqueue(() =>
             {
                 var foundItem = current.ImportantItems.SingleOrDefault(x => x.Key == randoName);
-                item.Opacity = foundItem.Value > 0 ? 1 : 0.4;
+                item.Opacity = foundItem.Value > 0 ? 1 : 0.3;
                 itemCount.Text = foundItem.Value.ToString();
             });
         }
@@ -196,7 +196,7 @@ namespace TunicRandoTracker
                     : new BitmapImage(new Uri($"ms-appx:///assets/items/relic-{code}.png"));
 
                 // light up graphic if either an upgrade was found or the relic was obtained
-                item.Opacity = (foundStat.Value > 0 || foundRelic.Value > 0) ? 1 : 0.4;
+                item.Opacity = (foundStat.Value > 0 || foundRelic.Value > 0) ? 1 : 0.3;
             });
         }
     }
