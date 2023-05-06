@@ -10,6 +10,7 @@ using System.Threading;
 using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Dispatching;
 using System.Text.Json;
+using WinUIEx;
 
 namespace TunicRandoTracker
 {
@@ -29,6 +30,7 @@ namespace TunicRandoTracker
             {
                 InitializeComponent();
                 Title = "TUNIC Randomizer Tracker v0.1";
+                this.SetWindowSize(1216, 239); // 12x2
 
                 // fire once
                 ParseRando();
@@ -40,7 +42,7 @@ namespace TunicRandoTracker
                 FileWatcher.IncludeSubdirectories = false;
                 FileWatcher.EnableRaisingEvents = true;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine(ex.Message);
             }
@@ -52,7 +54,31 @@ namespace TunicRandoTracker
             Thread.Sleep(milliseconds);
             ParseRando();
         }
-
+        private void SizeClick(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            switch (button.Name)
+            {
+                case "Size2":
+                    this.SetWindowSize(1216, 239); // 12x2
+                    break;
+                case "Size3":
+                    this.SetWindowSize(816, 339); // 8x3
+                    break;
+                case "Size4":
+                    this.SetWindowSize(616, 439); // 6x4
+                    break;
+                case "Size5":
+                    this.SetWindowSize(516, 539); // 5x5
+                    break;
+                case "Size6":
+                    this.SetWindowSize(416, 639); // 4x6
+                    break;
+                case "Size8":
+                    this.SetWindowSize(316, 839); // 3x8
+                    break;
+            }
+        }
         public void ParseRando()
         {
             var trackerFile = File.ReadAllText(Environment.ExpandEnvironmentVariables(itemTrackerFile));
@@ -92,7 +118,7 @@ namespace TunicRandoTracker
             RelicUpdate(currentTracker, SP, SPCount, "Upgrade Offering - Magic MP - Mushroom", "Relic - Hero Pendant SP", "sp");
             RelicUpdate(currentTracker, MP, MPCount, "Upgrade Offering - Stamina SP - Feather", "Relic - Hero Pendant MP", "mp");
 
-            //sword progression
+            // sword progression
             var swordProg = currentTracker.ImportantItems.SingleOrDefault(x => x.Key == "Sword Progression");
             uiThread.TryEnqueue(() =>
             {
@@ -110,6 +136,30 @@ namespace TunicRandoTracker
                         break;
                 }
             });
+
+            // hexagon quest
+            var hexQuest = currentTracker.ImportantItems.SingleOrDefault(x => x.Key == "Hexagon Gold");
+            uiThread.TryEnqueue(() =>
+            {
+                if(hexQuest.Value > 0)
+                {
+                    HexBlue.Visibility = Visibility.Collapsed;
+                    HexGreen.Visibility = Visibility.Collapsed;
+                    HexRed.Visibility = Visibility.Collapsed;
+
+                    HexagonQuest.Visibility = Visibility.Visible;
+                    HexGoldCount.Text = hexQuest.Value.ToString();
+                }
+                else
+                {
+                    HexBlue.Visibility = Visibility.Visible;
+                    HexGreen.Visibility = Visibility.Visible;
+                    HexRed.Visibility = Visibility.Visible;
+
+                    HexagonQuest.Visibility = Visibility.Collapsed;
+                    HexGoldCount.Text = "0";
+                }
+            });
         }
 
         private static void ItemCollected(ItemTracker current, Image item, string randoName)
@@ -117,7 +167,7 @@ namespace TunicRandoTracker
             uiThread.TryEnqueue(() =>
             {
                 var foundItem = current.ImportantItems.SingleOrDefault(x => x.Key == randoName);
-                item.Opacity = foundItem.Value > 0 ? 1 : 0.5;
+                item.Opacity = foundItem.Value > 0 ? 1 : 0.4;
             });
         }
 
@@ -126,7 +176,7 @@ namespace TunicRandoTracker
             uiThread.TryEnqueue(() =>
             {
                 var foundItem = current.ImportantItems.SingleOrDefault(x => x.Key == randoName);
-                item.Opacity = foundItem.Value > 0 ? 1 : 0.5;
+                item.Opacity = foundItem.Value > 0 ? 1 : 0.4;
                 itemCount.Text = foundItem.Value.ToString();
             });
         }
@@ -148,7 +198,7 @@ namespace TunicRandoTracker
                 // light up graphic if either an upgrade was found or the relic was obtained
                 if (foundStat.Value > 0 || foundRelic.Value > 0)
                 {
-                    item.Opacity = foundStat.Value > 0 ? 1 : 0.5;
+                    item.Opacity = foundStat.Value > 0 ? 1 : 0.4;
                 }
             });
         }
