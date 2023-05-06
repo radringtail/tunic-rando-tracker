@@ -196,10 +196,7 @@ namespace TunicRandoTracker
                     : new BitmapImage(new Uri($"ms-appx:///assets/items/relic-{code}.png"));
 
                 // light up graphic if either an upgrade was found or the relic was obtained
-                if (foundStat.Value > 0 || foundRelic.Value > 0)
-                {
-                    item.Opacity = foundStat.Value > 0 ? 1 : 0.4;
-                }
+                item.Opacity = (foundStat.Value > 0 || foundRelic.Value > 0) ? 1 : 0.4;
             });
         }
     }
