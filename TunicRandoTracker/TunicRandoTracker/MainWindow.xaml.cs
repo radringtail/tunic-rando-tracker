@@ -111,12 +111,12 @@ namespace TunicRandoTracker
             QuantityCollected(currentTracker, Trophies, TrophiesCount, "Golden Trophies");
 
             // resolve relics (upgrade count + hero relic)
-            RelicUpdate(currentTracker, ATT, ATTCount, "Upgrade Offering - Attack - Tooth", "Relic - Hero Sword", "att");
-            RelicUpdate(currentTracker, DEF, DEFCount, "Upgrade Offering - DamageResist - Effigy", "Relic - Hero Crown", "def");
-            RelicUpdate(currentTracker, POTION, POTIONCount, "Upgrade Offering - PotionEfficiency Swig - Ash", "Relic - Hero Water", "potion");
-            RelicUpdate(currentTracker, HP, HPCount, "Upgrade Offering - Health HP - Flower", "Relic - Hero Pendant HP", "hp");
-            RelicUpdate(currentTracker, SP, SPCount, "Upgrade Offering - Magic MP - Mushroom", "Relic - Hero Pendant SP", "sp");
-            RelicUpdate(currentTracker, MP, MPCount, "Upgrade Offering - Stamina SP - Feather", "Relic - Hero Pendant MP", "mp");
+            RelicUpdate(currentTracker, ATT, ATTCount, "Level Up - Attack", "Relic - Hero Sword", "att");
+            RelicUpdate(currentTracker, DEF, DEFCount, "Level Up - DamageResist", "Relic - Hero Crown", "def");
+            RelicUpdate(currentTracker, POTION, POTIONCount, "Level Up - PotionEfficiency", "Relic - Hero Water", "potion");
+            RelicUpdate(currentTracker, HP, HPCount, "Level Up - Health", "Relic - Hero Pendant HP", "hp");
+            RelicUpdate(currentTracker, SP, SPCount, "Level Up - Stamina", "Relic - Hero Pendant SP", "sp");
+            RelicUpdate(currentTracker, MP, MPCount, "Level Up - Magic", "Relic - Hero Pendant MP", "mp");
 
             // sword progression
             var swordProg = currentTracker.ImportantItems.SingleOrDefault(x => x.Key == "Sword Progression");
