@@ -2,6 +2,8 @@
 
 A local Windows app that parses the [TUNIC Randomizer](https://github.com/silent-destroyer/tunic-randomizer) ItemLog.
 
+![image](https://github.com/radicoon/tunic-rando-tracker/assets/131428651/cfc42a6f-ddc4-47e6-b90b-f4698faab3b3)
+
 ## Instructions
 
 1. Insure that the TUNIC Randomizer is exporting an ItemLog.json file (this is default behavior as of v0.11) and one exists (start a New Game once ever with 0.11+).
