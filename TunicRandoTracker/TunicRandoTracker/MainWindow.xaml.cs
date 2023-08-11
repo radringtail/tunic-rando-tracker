@@ -188,6 +188,7 @@ namespace TunicRandoTracker
 
                     HexagonQuest.Visibility = Visibility.Visible;
                     HexGoldCount.Text = hexQuest.Value.ToString();
+                    HexGold.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/hex-gold.png"));
                 }
                 else
                 {
