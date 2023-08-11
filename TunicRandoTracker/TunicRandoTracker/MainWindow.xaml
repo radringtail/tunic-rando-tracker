@@ -52,37 +52,67 @@
                             </CommandBarFlyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
+                    <AppBarButton Name="ItemTheme" Label="Item Theme">
+                        <AppBarButton.Flyout>
+                            <CommandBarFlyout Placement="Top">
+                                <AppBarButton Name="ThemeDefault" Label="Default" Click="ThemeClick">
+                                    Default
+                                </AppBarButton>
+                                <AppBarButton Name="ThemeCircles" Label="Circles" Click="ThemeClick">
+                                    Circles
+                                </AppBarButton>
+                                <CommandBarFlyout.SecondaryCommands>
+                                </CommandBarFlyout.SecondaryCommands>
+                            </CommandBarFlyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+                    <AppBarButton Name="BGColor" Label="BG Color">
+                        <AppBarButton.Flyout>
+                            <CommandBarFlyout Placement="Top">
+                                <AppBarButton Name="ColorDefault" Label="Default" Click="ColorClick">
+                                    Black
+                                </AppBarButton>
+                                <AppBarButton Name="ColorGreen" Label="Circles" Click="ColorClick">
+                                    Green
+                                </AppBarButton>
+                                <CommandBarFlyout.SecondaryCommands>
+                                </CommandBarFlyout.SecondaryCommands>
+                            </CommandBarFlyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+
                 </CommandBarFlyout.SecondaryCommands>
             </CommandBarFlyout>
         </VariableSizedWrapGrid.Resources>
 
-        <Image Name="Stick"     Opacity="0.3" Source="Assets/items/stick.png" />
-        <Image Name="Sword"     Opacity="0.3" Source="Assets/items/sword.png" />
-        <Image Name="Dagger"    Opacity="0.3" Source="Assets/items/dagger.png" />
-        <Image Name="Wand"      Opacity="0.3" Source="Assets/items/wand.png" />
-        <Image Name="Orb"       Opacity="0.3" Source="Assets/items/orb.png" />
-        <Image Name="Laurels"   Opacity="0.3" Source="Assets/items/laurels.png" />
-        <Image Name="Lantern"   Opacity="0.3" Source="Assets/items/lantern.png" />
-        <Image Name="Gun"       Opacity="0.3" Source="Assets/items/shotgun.png" />
-        <Image Name="Shield"    Opacity="0.3" Source="Assets/items/shield.png" />
+        <Image Name="Stick" />
+        <Image Name="Sword" />
+        <Image Name="Dagger" />
+        <Image Name="Wand" />
+        <Image Name="Orb" />
+        <Image Name="Laurels" />
+        <Image Name="Lantern" />
+        <Image Name="Gun" />
+        <Image Name="Shield" />
 
         <Grid Name="Misc">
-            <Image Name="Hourglass" Opacity="0.3" Source="Assets/items/hourglass.png" Width="70" HorizontalAlignment="Right" VerticalAlignment="Top"/>
-            <Image Name="Dath" Opacity="0.3" Source="Assets/items/dath.png" Width="70" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
+            <Image Name="Hourglass" Width="70" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+            <Image Name="Dath" Width="70" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
         </Grid>
         <Grid Name="Keys">
-            <Image Name="HouseKey" Opacity="0.3" Source="Assets/items/key.png" Width="75" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-            <Image Name="VaultKey" Opacity="0.3" Source="Assets/items/vaultkey.png" Width="75" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+            <Image Name="HouseKey" Width="75" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Image Name="VaultKey" Width="75" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
         </Grid>
         <Grid Name="Questagons">
-            <Image Name="HexRed" Opacity="0.3" Source="Assets/items/hex-red.png" Width="55" HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
-            <Image Name="HexGreen" Opacity="0.3" Source="Assets/items/hex-green.png" Width="55" HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
-            <Image Name="HexBlue" Opacity="0.3" Source="Assets/items/hex-blue.png" Width="55" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,3,1,0"/>
+            <Image Name="HexBG" />
+            <Image Name="HexRed" />
+            <Image Name="HexGreen" />
+            <Image Name="HexBlue" />
             <Grid Name="HexagonQuest">
                 <Grid.Resources>
                     <ui:AttachedDropShadow x:Key="HexGoldShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind HexGold}"/>
                 </Grid.Resources>
-                <Image Name="HexGold" Opacity="1" Source="Assets/items/hex-gold.png"  />
+                <Image Name="HexGold" Opacity="1" />
                 <TextBlock Name="HexGoldCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource HexGoldShadow}"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right" 
                     FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -93,7 +123,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="CoinsShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Coins}"/>
             </Grid.Resources>
-            <Image Name="Coins" Opacity="0.3" Source="Assets/items/coin.png"  />
+            <Image Name="Coins" />
             <TextBlock Name="CoinsCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource CoinsShadow}"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right" 
                     FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -102,7 +132,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="SlotsShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Slots}"/>
             </Grid.Resources>
-            <Image Name="Slots" Opacity="0.3" Source="Assets/items/slot.png" />
+            <Image Name="Slots" Source="Assets/items/slot.png" />
             <TextBlock Name="SlotsCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource SlotsShadow}"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right" 
                     FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -111,7 +141,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="CardsShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Cards}"/>
             </Grid.Resources>
-            <Image Name="Cards" Opacity="0.3" Source="Assets/items/card.png" />
+            <Image Name="Cards" Source="Assets/items/card.png" />
             <TextBlock Name="CardsCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource CardsShadow}"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -120,7 +150,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="PagesShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Pages}"/>
             </Grid.Resources>
-            <Image Name="Pages" Opacity="0.3" Source="Assets/items/book.png" />
+            <Image Name="Pages" />
             <TextBlock Name="PagesCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource PagesShadow}"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -129,7 +159,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="FairiesShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Fairies}"/>
             </Grid.Resources>
-            <Image Name="Fairies" Opacity="0.3" Source="Assets/items/fairy.png" />
+            <Image Name="Fairies" />
             <TextBlock Name="FairiesCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource FairiesShadow}"
            VerticalAlignment="Bottom" HorizontalAlignment="Right"
            FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -138,7 +168,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="TrophiesShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Trophies}"/>
             </Grid.Resources>
-            <Image Name="Trophies" Opacity="0.3" Source="Assets/items/trophy.png" />
+            <Image Name="Trophies" />
             <TextBlock Name="TrophiesCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource TrophiesShadow}"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -148,7 +178,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="ATTShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind ATT}"/>
             </Grid.Resources>
-            <Image Name="ATT" Opacity="0.3" Source="Assets/items/relic-att.png" />
+            <Image Name="ATT" />
             <TextBlock Name="ATTCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource ATTShadow}"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -157,7 +187,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="DEFShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind DEF}"/>
             </Grid.Resources>
-            <Image Name="DEF" Opacity="0.3" Source="Assets/items/relic-def.png" />
+            <Image Name="DEF" />
             <TextBlock Name="DEFCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource DEFShadow}"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -166,7 +196,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="POTIONShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind POTION}"/>
             </Grid.Resources>
-            <Image Name="POTION" Opacity="0.3" Source="Assets/items/relic-potion.png" />
+            <Image Name="POTION" />
             <TextBlock Name="POTIONCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource POTIONShadow}"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -175,7 +205,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="HPShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind HP}"/>
             </Grid.Resources>
-            <Image Name="HP" Opacity="0.3" Source="Assets/items/relic-hp.png" />
+            <Image Name="HP" />
             <TextBlock Name="HPCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource HPShadow}"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -184,7 +214,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="SPShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind SP}"/>
             </Grid.Resources>
-            <Image Name="SP" Opacity="0.3" Source="Assets/items/relic-sp.png" />
+            <Image Name="SP" />
             <TextBlock Name="SPCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource SPShadow}"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        FontSize="36" FontFamily="Verdana" Padding="5"/>
@@ -193,7 +223,7 @@
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="MPShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind MP}"/>
             </Grid.Resources>
-            <Image Name="MP" Opacity="0.3" Source="Assets/items/relic-mp.png" />
+            <Image Name="MP" />
             <TextBlock Name="MPCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource MPShadow}"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                        FontSize="36" FontFamily="Verdana" Padding="5"/>

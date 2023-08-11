@@ -11,6 +11,8 @@ using Microsoft.UI.Xaml.Media.Imaging;
 using Microsoft.UI.Dispatching;
 using System.Text.Json;
 using WinUIEx;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI;
 
 namespace TunicRandoTracker
 {
@@ -23,6 +25,8 @@ namespace TunicRandoTracker
         public const string itemTrackerFile = @"%UserProfile%\AppData\LocalLow\Andrew Shouldice\Secret Legend\Randomizer\ItemTracker.json";
         public static FileSystemWatcher FileWatcher = new FileSystemWatcher();
         public static DispatcherQueue uiThread = DispatcherQueue.GetForCurrentThread();
+
+        public static string itemTheme = "items";
 
         public MainWindow()
         {
@@ -54,6 +58,7 @@ namespace TunicRandoTracker
             Thread.Sleep(milliseconds);
             ParseRando();
         }
+
         private void SizeClick(object sender, RoutedEventArgs e)
         {
             var button = (Button)sender;
@@ -79,36 +84,67 @@ namespace TunicRandoTracker
                     break;
             }
         }
+
+        private void ThemeClick(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            switch (button.Name)
+            {
+                case "ThemeDefault":
+                    itemTheme = "items";
+                    ParseRando();
+                    break;
+                case "ThemeCircles":
+                    itemTheme = "items-circle";
+                    ParseRando();
+                    break;
+            }
+        }
+
+        private void ColorClick(object sender, RoutedEventArgs e)
+        {
+            var button = (Button)sender;
+            switch (button.Name)
+            {
+                case "ColorDefault":
+                    ItemGrid.Background = new SolidColorBrush(Colors.Black);
+                    break;
+                case "ColorGreen":
+                    ItemGrid.Background = new SolidColorBrush(Colors.Lime);
+                    break;
+            }
+        }
+
         public void ParseRando()
         {
             var trackerFile = File.ReadAllText(Environment.ExpandEnvironmentVariables(itemTrackerFile));
             var currentTracker = JsonSerializer.Deserialize<ItemTracker>(trackerFile.ToString());
 
             // check togglable items 
-            ItemCollected(currentTracker, Stick, "Stick");
-            ItemCollected(currentTracker, Sword, "Sword");
-            ItemCollected(currentTracker, Dagger, "Stundagger");
-            ItemCollected(currentTracker, Wand, "Techbow");
-            ItemCollected(currentTracker, Orb, "Wand");
-            ItemCollected(currentTracker, Laurels, "Hyperdash");
-            ItemCollected(currentTracker, Lantern, "Lantern");
-            ItemCollected(currentTracker, Shield, "Shield");
-            ItemCollected(currentTracker, Hourglass, "SlowmoItem");
-            ItemCollected(currentTracker, Gun, "Shotgun");
-            ItemCollected(currentTracker, Dath, "Dath Stone");
-            ItemCollected(currentTracker, HouseKey, "Key (House)");
-            ItemCollected(currentTracker, VaultKey, "Vault Key (Red)");
-            ItemCollected(currentTracker, HexRed, "Hexagon Red");
-            ItemCollected(currentTracker, HexBlue, "Hexagon Blue");
-            ItemCollected(currentTracker, HexGreen, "Hexagon Green");
+            ItemCollected(currentTracker, Stick, "Stick", "stick");
+            ItemCollected(currentTracker, Sword, "Sword", "sword");
+            ItemCollected(currentTracker, Dagger, "Stundagger", "dagger");
+            ItemCollected(currentTracker, Wand, "Techbow", "wand");
+            ItemCollected(currentTracker, Orb, "Wand", "orb");
+            ItemCollected(currentTracker, Laurels, "Hyperdash", "laurels");
+            ItemCollected(currentTracker, Lantern, "Lantern", "lantern");
+            ItemCollected(currentTracker, Shield, "Shield", "shield");
+            ItemCollected(currentTracker, Hourglass, "SlowmoItem", "hourglass");
+            ItemCollected(currentTracker, Gun, "Shotgun", "shotgun");
+            ItemCollected(currentTracker, Dath, "Dath Stone", "dath");
+            ItemCollected(currentTracker, HouseKey, "Key (House)", "key");
+            ItemCollected(currentTracker, VaultKey, "Vault Key (Red)", "vaultkey");
+            ItemCollected(currentTracker, HexRed, "Hexagon Red", "hex-red");
+            ItemCollected(currentTracker, HexBlue, "Hexagon Blue", "hex-blue");
+            ItemCollected(currentTracker, HexGreen, "Hexagon Green", "hex-green");
 
             // count collected items
-            QuantityCollected(currentTracker, Coins, CoinsCount, "Trinket Coin");
-            QuantityCollected(currentTracker, Slots, SlotsCount, "Trinket Slot");
-            QuantityCollected(currentTracker, Cards, CardsCount, "Trinket Cards");
-            QuantityCollected(currentTracker, Pages, PagesCount, "Pages");
-            QuantityCollected(currentTracker, Fairies, FairiesCount, "Fairies");
-            QuantityCollected(currentTracker, Trophies, TrophiesCount, "Golden Trophies");
+            QuantityCollected(currentTracker, Coins, CoinsCount, "Trinket Coin", "coin");
+            QuantityCollected(currentTracker, Slots, SlotsCount, "Trinket Slot", "slot");
+            QuantityCollected(currentTracker, Cards, CardsCount, "Trinket Cards", "card");
+            QuantityCollected(currentTracker, Pages, PagesCount, "Pages", "book");
+            QuantityCollected(currentTracker, Fairies, FairiesCount, "Fairies", "fairy");
+            QuantityCollected(currentTracker, Trophies, TrophiesCount, "Golden Trophies", "trophy");
 
             // resolve relics (upgrade count + hero relic)
             RelicUpdate(currentTracker, ATT, ATTCount, "Level Up - Attack", "Relic - Hero Sword", "att");
@@ -126,13 +162,13 @@ namespace TunicRandoTracker
                 {
                     case 1:
                     case 2:
-                        Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/items/sword.png"));
+                        Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/sword.png"));
                         break;
                     case 3:
-                        Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/items/sword3.png"));
+                        Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/sword3.png"));
                         break;
                     case 4:
-                        Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/items/sword4.png"));
+                        Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/sword4.png"));
                         break;
                 }
             });
@@ -141,7 +177,7 @@ namespace TunicRandoTracker
             var hexQuest = currentTracker.ImportantItems.SingleOrDefault(x => x.Key == "Hexagon Gold");
             uiThread.TryEnqueue(() =>
             {
-                if(hexQuest.Value > 0)
+                if (hexQuest.Value > 0)
                 {
                     HexBlue.Visibility = Visibility.Collapsed;
                     HexGreen.Visibility = Visibility.Collapsed;
@@ -152,6 +188,19 @@ namespace TunicRandoTracker
                 }
                 else
                 {
+                    var redHex = currentTracker.ImportantItems.SingleOrDefault(x => x.Key == "Hexagon Red");
+                    var greenHex = currentTracker.ImportantItems.SingleOrDefault(x => x.Key == "Hexagon Green");
+                    var blueHex = currentTracker.ImportantItems.SingleOrDefault(x => x.Key == "Hexagon Blue");
+
+                    if (redHex.Value > 0 || greenHex.Value > 0 || blueHex.Value > 0)
+                    {
+                        HexBG.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/hex-bg.png"));
+                    }
+                    else
+                    {
+                        HexBG.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/dim/hex-bg.png"));
+                    }
+
                     HexBlue.Visibility = Visibility.Visible;
                     HexGreen.Visibility = Visibility.Visible;
                     HexRed.Visibility = Visibility.Visible;
@@ -162,21 +211,25 @@ namespace TunicRandoTracker
             });
         }
 
-        private static void ItemCollected(ItemTracker current, Image item, string randoName)
+        private static void ItemCollected(ItemTracker current, Image item, string randoName, string code)
         {
             uiThread.TryEnqueue(() =>
             {
                 var foundItem = current.ImportantItems.SingleOrDefault(x => x.Key == randoName);
-                item.Opacity = foundItem.Value > 0 ? 1 : 0.3;
+                item.Source = foundItem.Value > 0
+                  ? new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/{code}.png"))
+                  : new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/dim/{code}.png"));
             });
         }
 
-        private static void QuantityCollected(ItemTracker current, Image item, TextBlock itemCount, string randoName)
+        private static void QuantityCollected(ItemTracker current, Image item, TextBlock itemCount, string randoName, string code)
         {
             uiThread.TryEnqueue(() =>
             {
                 var foundItem = current.ImportantItems.SingleOrDefault(x => x.Key == randoName);
-                item.Opacity = foundItem.Value > 0 ? 1 : 0.3;
+                item.Source = foundItem.Value > 0
+                  ? new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/{code}.png"))
+                  : new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/dim/{code}.png"));
                 itemCount.Text = foundItem.Value.ToString();
             });
         }
@@ -191,12 +244,18 @@ namespace TunicRandoTracker
 
                 // updates based on collected upgrades
                 var foundRelic = current.ImportantItems.SingleOrDefault(x => x.Key == relicName);
-                item.Source = foundRelic.Value > 0
-                    ? new BitmapImage(new Uri($"ms-appx:///assets/items/relic-{code}2.png"))
-                    : new BitmapImage(new Uri($"ms-appx:///assets/items/relic-{code}.png"));
 
-                // light up graphic if either an upgrade was found or the relic was obtained
-                item.Opacity = (foundStat.Value > 0 || foundRelic.Value > 0) ? 1 : 0.3;
+                // light up graphic if an upgrade or relic was found
+                if (foundRelic.Value > 0)
+                {
+                    item.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/relic-{code}2.png"));
+                }
+                else
+                {
+                    item.Source = foundStat.Value > 0
+                        ? new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/relic-{code}.png"))
+                        : new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/dim/relic-{code}.png"));
+                }
             });
         }
     }
