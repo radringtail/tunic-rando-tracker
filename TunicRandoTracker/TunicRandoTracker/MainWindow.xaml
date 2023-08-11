@@ -17,6 +17,11 @@
                     <AppBarButton Name="Browse" Label="Arrangement">
                         <AppBarButton.Flyout>
                             <CommandBarFlyout Placement="Top">
+                                <AppBarButton Name="Size1" Label="24x1" Click="SizeClick">
+                                    <AppBarButton.Icon>
+                                        <FontIcon FontFamily="Arial" Glyph="24:1"/>
+                                    </AppBarButton.Icon>
+                                </AppBarButton>
                                 <AppBarButton Name="Size2" Label="12x2" Click="SizeClick">
                                     <AppBarButton.Icon>
                                         <FontIcon FontFamily="Arial" Glyph="12:2"/>

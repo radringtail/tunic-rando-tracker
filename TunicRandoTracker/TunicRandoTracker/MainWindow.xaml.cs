@@ -64,6 +64,9 @@ namespace TunicRandoTracker
             var button = (Button)sender;
             switch (button.Name)
             {
+                case "Size1":
+                    this.SetWindowSize(2416, 139); // 24x1
+                    break;
                 case "Size2":
                     this.SetWindowSize(1216, 239); // 12x2
                     break;
