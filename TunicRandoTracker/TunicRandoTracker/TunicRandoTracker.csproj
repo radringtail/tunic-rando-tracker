@@ -73,6 +73,7 @@
     <None Remove="Assets\items\trophy.png" />
     <None Remove="Assets\items\vaultkey.png" />
     <None Remove="Assets\items\wand.png" />
+    <None Remove="Assets\odin-rounded-bold.otf" />
   </ItemGroup>
 
   <ItemGroup>
@@ -521,6 +522,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Assets\items-circle\wand.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Assets\odin-rounded-bold.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
