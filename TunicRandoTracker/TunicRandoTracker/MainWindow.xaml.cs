@@ -163,15 +163,14 @@ namespace TunicRandoTracker
             {
                 switch (swordProg.Value)
                 {
-                    case 1:
                     case 2:
-                        Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/sword.png"));
+                        UpdateImage(Sword, "sword");
                         break;
                     case 3:
-                        Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/sword3.png"));
+                        UpdateImage(Sword, "sword3");
                         break;
                     case 4:
-                        Sword.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/sword4.png"));
+                        UpdateImage(Sword, "sword4");
                         break;
                 }
             });
@@ -188,7 +187,7 @@ namespace TunicRandoTracker
 
                     HexagonQuest.Visibility = Visibility.Visible;
                     HexGoldCount.Text = hexQuest.Value.ToString();
-                    HexGold.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/hex-gold.png"));
+                    UpdateImage(HexGold, "hex-gold");
                 }
                 else
                 {
@@ -198,11 +197,11 @@ namespace TunicRandoTracker
 
                     if (redHex.Value > 0 || greenHex.Value > 0 || blueHex.Value > 0)
                     {
-                        HexBG.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/hex-bg.png"));
+                        UpdateImage(HexBG, "hex-bg");
                     }
                     else
                     {
-                        HexBG.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/dim/hex-bg.png"));
+                        UpdateImage(HexBG, "dim/hex-bg");
                     }
 
                     HexBlue.Visibility = Visibility.Visible;
@@ -220,9 +219,14 @@ namespace TunicRandoTracker
             uiThread.TryEnqueue(() =>
             {
                 var foundItem = current.ImportantItems.SingleOrDefault(x => x.Key == randoName);
-                item.Source = foundItem.Value > 0
-                  ? new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/{code}.png"))
-                  : new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/dim/{code}.png"));
+                if (foundItem.Value > 0)
+                {
+                    UpdateImage(item, code);
+                }
+                else
+                {
+                    UpdateImage(item, $"dim/{code}");
+                }
             });
         }
 
@@ -231,9 +235,15 @@ namespace TunicRandoTracker
             uiThread.TryEnqueue(() =>
             {
                 var foundItem = current.ImportantItems.SingleOrDefault(x => x.Key == randoName);
-                item.Source = foundItem.Value > 0
-                  ? new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/{code}.png"))
-                  : new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/dim/{code}.png"));
+                if (foundItem.Value > 0)
+                {
+                    UpdateImage(item, code);
+                }
+                else
+                {
+                    UpdateImage(item, $"dim/{code}");
+                }
+
                 itemCount.Text = foundItem.Value.ToString();
             });
         }
@@ -252,14 +262,33 @@ namespace TunicRandoTracker
                 // light up graphic if an upgrade or relic was found
                 if (foundRelic.Value > 0)
                 {
-                    item.Source = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/relic-{code}2.png"));
+                    UpdateImage(item, $"relic-{code}2");
                 }
                 else
                 {
-                    item.Source = foundStat.Value > 0
-                        ? new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/relic-{code}.png"))
-                        : new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/dim/relic-{code}.png"));
+                    if(foundStat.Value > 0)
+                    {
+                        UpdateImage(item, $"relic-{code}");
+                    }
+                    else
+                    {
+                        UpdateImage(item, $"dim/relic-{code}");
+                    }
                 }
+
+            });
+        }
+
+        private static void UpdateImage(Image item, string imageName)
+        {
+            uiThread.TryEnqueue(() =>
+            {
+                var uri = new BitmapImage(new Uri($"ms-appx:///assets/{itemTheme}/{imageName}.png"));
+                if(item.Source != null && (item.Source as BitmapImage).UriSource.AbsolutePath == uri.UriSource.AbsolutePath)
+                {
+                    return;
+                }
+                item.Source = uri;
             });
         }
     }
