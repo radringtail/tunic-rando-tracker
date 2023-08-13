@@ -19,6 +19,14 @@ A local Windows app that parses the [TUNIC Randomizer](https://github.com/silent
 
 ## Versions
 
+### 1.1
+
+- Icons only re-draw when images are replaced (i.e., much less app flickering)
+- Replaced quantity font with Odin Rounded (the menu font in TUNIC)
+- Added a second theme: circles (to imitate the look of TUNIC's UI)
+- Added a background color selection (to allow keying for the cicles theme)
+- Added a 24x1 arrangement option
+
 ### 1.0
 
 - Initial release
