@@ -254,7 +254,7 @@ namespace TunicRandoTracker
             {
                 // updates based on collected upgrades
                 var foundStat = current.ImportantItems.SingleOrDefault(x => x.Key == statName);
-                itemCount.Text = foundStat.Value.ToString();
+                itemCount.Text = (foundStat.Value + 1).ToString();
 
                 // updates based on collected upgrades
                 var foundRelic = current.ImportantItems.SingleOrDefault(x => x.Key == relicName);
