@@ -33,7 +33,7 @@ namespace TunicRandoTracker
             try
             {
                 InitializeComponent();
-                Title = "TUNIC Randomizer Tracker v1.0.0";
+                Title = "TUNIC Randomizer Tracker v1.1.0";
                 this.SetWindowSize(1216, 239); // 12x2
 
                 // fire once
@@ -143,7 +143,7 @@ namespace TunicRandoTracker
 
             // count collected items
             QuantityCollected(currentTracker, Coins, CoinsCount, "Trinket Coin", "coin");
-            QuantityCollected(currentTracker, Slots, SlotsCount, "Trinket Slot", "slot");
+            ExtraSlotsCollected(currentTracker, Slots, SlotsCount);
             QuantityCollected(currentTracker, Cards, CardsCount, "Trinket Cards", "card");
             QuantityCollected(currentTracker, Pages, PagesCount, "Pages", "book");
             QuantityCollected(currentTracker, Fairies, FairiesCount, "Fairies", "fairy");
@@ -242,6 +242,24 @@ namespace TunicRandoTracker
                 else
                 {
                     UpdateImage(item, $"dim/{code}");
+                }
+
+                itemCount.Text = foundItem.Value.ToString();
+            });
+        }
+
+        private static void ExtraSlotsCollected(ItemTracker current, Image item, TextBlock itemCount)
+        {
+            uiThread.TryEnqueue(() =>
+            {
+                var foundItem = current.ImportantItems.SingleOrDefault(x => x.Key == "Trinket Slot");
+                if (foundItem.Value > 1)
+                {
+                    UpdateImage(item, "slot");
+                }
+                else
+                {
+                    UpdateImage(item, $"dim/slot");
                 }
 
                 itemCount.Text = foundItem.Value.ToString();

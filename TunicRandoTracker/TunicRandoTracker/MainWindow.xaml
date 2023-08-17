@@ -85,7 +85,6 @@
                             </CommandBarFlyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-
                 </CommandBarFlyout.SecondaryCommands>
             </CommandBarFlyout>
         </VariableSizedWrapGrid.Resources>
@@ -95,11 +94,10 @@
         <Image Name="Dagger" />
         <Image Name="Wand" />
         <Image Name="Orb" />
-        <Image Name="Laurels" />
-        <Image Name="Lantern" />
         <Image Name="Gun" />
+        <Image Name="Lantern" />
         <Image Name="Shield" />
-
+        <Image Name="Laurels" />
         <Grid Name="Misc">
             <Image Name="Hourglass" Width="70" HorizontalAlignment="Right" VerticalAlignment="Top"/>
             <Image Name="Dath" Width="70" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
@@ -123,16 +121,6 @@
                     FontSize="32" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 2" HorizontalTextAlignment="Center" />
             </Grid>
         </Grid>
-
-        <Grid Name="CoinGrid">
-            <Grid.Resources>
-                <ui:AttachedDropShadow x:Key="CoinsShadow" Offset="0" BlurRadius="5" Color="Black" CastTo="{x:Bind Coins}"/>
-            </Grid.Resources>
-            <Image Name="Coins" />
-            <TextBlock Name="CoinsCount" Text="13" Foreground="White" ui:Effects.Shadow="{StaticResource CoinsShadow}"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Right" 
-                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
-        </Grid>
         <Grid Name="SlotsGrid">
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="SlotsShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Slots}"/>
@@ -151,14 +139,14 @@
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
         </Grid>
-        <Grid Name="PagesGrid">
+        <Grid Name="CoinGrid">
             <Grid.Resources>
-                <ui:AttachedDropShadow x:Key="PagesShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Pages}"/>
+                <ui:AttachedDropShadow x:Key="CoinsShadow" Offset="0" BlurRadius="5" Color="Black" CastTo="{x:Bind Coins}"/>
             </Grid.Resources>
-            <Image Name="Pages" />
-            <TextBlock Name="PagesCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource PagesShadow}"
-                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                    FontSize="30" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" HorizontalTextAlignment="Center" />
+            <Image Name="Coins" />
+            <TextBlock Name="CoinsCount" Text="13" Foreground="White" ui:Effects.Shadow="{StaticResource CoinsShadow}"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
         </Grid>
         <Grid Name="FairiesGrid">
             <Grid.Resources>
@@ -169,6 +157,15 @@
                     VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     FontSize="32" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 2" HorizontalTextAlignment="Center" />
         </Grid>
+        <Grid Name="PagesGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="PagesShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Pages}"/>
+            </Grid.Resources>
+            <Image Name="Pages" />
+            <TextBlock Name="PagesCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource PagesShadow}"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    FontSize="30" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" HorizontalTextAlignment="Center" />
+        </Grid>
         <Grid Name="TrophiesGrid">
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="TrophiesShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Trophies}"/>
@@ -178,7 +175,6 @@
                 VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
         </Grid>
-
         <Grid Name="ATTGrid">
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="ATTShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind ATT}"/>
