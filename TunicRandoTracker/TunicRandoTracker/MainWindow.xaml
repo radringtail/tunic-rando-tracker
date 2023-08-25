@@ -123,61 +123,6 @@
             </Grid>
         </Grid>
                 
-        <Grid Name="ATTGrid">
-            <Grid.Resources>
-                <ui:AttachedDropShadow x:Key="ATTShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind ATT}"/>
-            </Grid.Resources>
-            <Image Name="ATT" />
-            <TextBlock Name="ATTCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource ATTShadow}"
-                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
-        </Grid>
-        <Grid Name="DEFGrid">
-            <Grid.Resources>
-                <ui:AttachedDropShadow x:Key="DEFShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind DEF}"/>
-            </Grid.Resources>
-            <Image Name="DEF" />
-            <TextBlock Name="DEFCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource DEFShadow}"
-                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
-        </Grid>
-        <Grid Name="POTIONGrid">
-            <Grid.Resources>
-                <ui:AttachedDropShadow x:Key="POTIONShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind POTION}"/>
-            </Grid.Resources>
-            <Image Name="POTION" />
-            <TextBlock Name="POTIONCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource POTIONShadow}"
-                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
-        </Grid>
-        <Grid Name="HPGrid">
-            <Grid.Resources>
-                <ui:AttachedDropShadow x:Key="HPShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind HP}"/>
-            </Grid.Resources>
-            <Image Name="HP" />
-            <TextBlock Name="HPCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource HPShadow}"
-                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
-        </Grid>
-        <Grid Name="SPGrid">
-            <Grid.Resources>
-                <ui:AttachedDropShadow x:Key="SPShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind SP}"/>
-            </Grid.Resources>
-            <Image Name="SP" />
-            <TextBlock Name="SPCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource SPShadow}"
-                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
-        </Grid>
-        <Grid Name="MPGrid">
-            <Grid.Resources>
-                <ui:AttachedDropShadow x:Key="MPShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind MP}"/>
-            </Grid.Resources>
-            <Image Name="MP" />
-            <TextBlock Name="MPCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource MPShadow}"
-                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
-        </Grid>
-
         <Grid Name="CardsGrid">
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="CardsShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Cards}"/>
@@ -231,6 +176,61 @@
             <TextBlock Name="PagesCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource PagesShadow}"
                        VerticalAlignment="Bottom" HorizontalAlignment="Right"
                     FontSize="30" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" HorizontalTextAlignment="Center" />
+        </Grid>
+        
+        <Grid Name="ATTGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="ATTShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind ATT}"/>
+            </Grid.Resources>
+            <Image Name="ATT" />
+            <TextBlock Name="ATTCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource ATTShadow}"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
+        </Grid>
+        <Grid Name="DEFGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="DEFShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind DEF}"/>
+            </Grid.Resources>
+            <Image Name="DEF" />
+            <TextBlock Name="DEFCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource DEFShadow}"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
+        </Grid>
+        <Grid Name="POTIONGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="POTIONShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind POTION}"/>
+            </Grid.Resources>
+            <Image Name="POTION" />
+            <TextBlock Name="POTIONCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource POTIONShadow}"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
+        </Grid>
+        <Grid Name="HPGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="HPShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind HP}"/>
+            </Grid.Resources>
+            <Image Name="HP" />
+            <TextBlock Name="HPCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource HPShadow}"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
+        </Grid>
+        <Grid Name="SPGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="SPShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind SP}"/>
+            </Grid.Resources>
+            <Image Name="SP" />
+            <TextBlock Name="SPCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource SPShadow}"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
+        </Grid>
+        <Grid Name="MPGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="MPShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind MP}"/>
+            </Grid.Resources>
+            <Image Name="MP" />
+            <TextBlock Name="MPCount" Text="1" Foreground="White" ui:Effects.Shadow="{StaticResource MPShadow}"
+                       VerticalAlignment="Bottom" HorizontalAlignment="Right"
+                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
         </Grid>
     </VariableSizedWrapGrid>
 </Window>
