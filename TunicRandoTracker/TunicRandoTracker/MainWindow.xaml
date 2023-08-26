@@ -122,7 +122,16 @@
                     FontSize="32" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 2" HorizontalTextAlignment="Center" />
             </Grid>
         </Grid>
-                
+
+        <Grid Name="CoinGrid">
+            <Grid.Resources>
+                <ui:AttachedDropShadow x:Key="CoinsShadow" Offset="0" BlurRadius="5" Color="Black" CastTo="{x:Bind Coins}"/>
+            </Grid.Resources>
+            <Image Name="Coins" />
+            <TextBlock Name="CoinsCount" Text="13" Foreground="White" ui:Effects.Shadow="{StaticResource CoinsShadow}"
+                    VerticalAlignment="Bottom" HorizontalAlignment="Right" 
+                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
+        </Grid>
         <Grid Name="CardsGrid">
             <Grid.Resources>
                 <ui:AttachedDropShadow x:Key="CardsShadow" Offset="0" BlurRadius="10" Color="Black" CastTo="{x:Bind Cards}"/>
@@ -138,15 +147,6 @@
             </Grid.Resources>
             <Image Name="Slots" />
             <TextBlock Name="SlotsCount" Text="0" Foreground="White" ui:Effects.Shadow="{StaticResource SlotsShadow}"
-                    VerticalAlignment="Bottom" HorizontalAlignment="Right" 
-                    FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
-        </Grid>
-        <Grid Name="CoinGrid">
-            <Grid.Resources>
-                <ui:AttachedDropShadow x:Key="CoinsShadow" Offset="0" BlurRadius="5" Color="Black" CastTo="{x:Bind Coins}"/>
-            </Grid.Resources>
-            <Image Name="Coins" />
-            <TextBlock Name="CoinsCount" Text="13" Foreground="White" ui:Effects.Shadow="{StaticResource CoinsShadow}"
                     VerticalAlignment="Bottom" HorizontalAlignment="Right" 
                     FontSize="34" FontFamily="/Assets/odin-rounded-bold.otf#Odin Rounded" Width="40" Height="40" Margin="1, 3" HorizontalTextAlignment="Center" />
         </Grid>
