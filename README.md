@@ -2,7 +2,7 @@
 
 A local Windows app that parses the [TUNIC Randomizer](https://rando.tunic.run) ItemLog.
 
-![image](https://github.com/radicoon/tunic-rando-tracker/assets/131428651/cfc42a6f-ddc4-47e6-b90b-f4698faab3b3)
+![image](https://github.com/radicoon/tunic-rando-tracker/assets/131428651/7a9445c1-812b-42cc-85f5-f27958eae27d)
 
 ## Instructions
 
