@@ -20,6 +20,10 @@ A local Windows app that parses the [TUNIC Randomizer](https://rando.tunic.run) 
 
 ## Versions
 
+### 1.1.1
+
+- Replaced Old House key image to match new color
+
 ### 1.1
 
 - Icons only re-draw when images are replaced (i.e., much less app flickering)
